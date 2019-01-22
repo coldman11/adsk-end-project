@@ -3,34 +3,8 @@
   become: yes
   vars:
     influxdb_url: "https://dl.influxdata.com/influxdb/releases/influxdb-1.7.1.x86_64.rpm"
-    app_node1_private: 18.184.233.132
-    app_node2_private: 18.196.35.245
+    app_node1_private: 172.31.30.193
+    app_node2_private: 172.31.30.2
   tasks:
     - include_tasks: tasks/configure-databases.yml
 
-- hosts: app_node1
-  become: yes
-  vars:
-    telegraf_url: "https://dl.influxdata.com/telegraf/releases/telegraf-1.8.3-1.x86_64.rpm"
-    db_node: 
-  tasks:
-    - include_tasks: tasks/configure-app-node.yml
-    - include_tasks: tasks/configure-telegraf-appnode1.yml
-
-- hosts: app_node2
-  become: yes
-  vars:
-    telegraf_url: "https://dl.influxdata.com/telegraf/releases/telegraf-1.8.3-1.x86_64.rpm"
-    db_node: 
-  tasks:
-    - include_tasks: tasks/configure-app-node.yml
-    - include_tasks: tasks/configure-telegraf-appnode2.yml
-
-- hosts: public_node
-  become: yes
-  vars:
-    app_node1_private: 172.31.28.3
-    app_node2_private: 172.31.17.76
-    app_public: 18.185.78.6
-  tasks:
-    - include_tasks: tasks/configure-public-node.yml
