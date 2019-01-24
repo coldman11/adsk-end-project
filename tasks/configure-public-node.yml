@@ -15,7 +15,7 @@
     src: templates/myproxy.conf
     dest: /etc/nginx/conf.d/nginx.conf
 - name: "Setup letsencrypt"
-  shell: certbot -i nginx -d "mbichal.tk" --nginx -m "baoslabel@gmail.com" --agree-tos --redirect --no-eff-email
+  shell: certbot -i nginx -d "mtopoladsk.ml" --nginx -m "coldcash14@gmail.com" --agree-tos --redirect --no-eff-email
 - name: "Free the port"
   shell: fuser -k 80/tcp
 - name: "Restart nginx"
