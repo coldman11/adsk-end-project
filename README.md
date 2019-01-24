@@ -9,3 +9,5 @@
 
 Ansible is required to run
 To run, use the command `ansible-playbook -i hosts.ini install.yml`
+
+![Alt text](./skrin.png "Title")
